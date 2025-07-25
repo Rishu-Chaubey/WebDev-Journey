@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Organized Code Examples</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    /* Section 1: Colored Sections */
+    .section-demo .section {
+      height: 8vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .section1 { background-color: red;}
+    .section2 { background-color: lime;}
+    .section3 { background-color: blue;}
+    .section4 { background-color: orange;}
+
+    /* Section 2: CSS Gradients */
+    .gradient-demo {
+      margin: 20px 0;
+    }
+    .gradient-demo .row {
+      display: flex;
+      height: 110px;
+      margin-bottom: 4px;
+    }
+    .gradient-demo .column {
+      flex: 1;
+    }
+    .grad1 { background: linear-gradient(to right, red, orange); }
+    .grad2 { background: linear-gradient(to right, green, yellow); }
+    .grad3 { background: linear-gradient(to right, blue, cyan); }
+    .grad4 { background: linear-gradient(to right, purple, pink); }
+    .grad5 { background: linear-gradient(to right, lime, gold); }
+    .grad6 { background: linear-gradient(to right, navy, lightblue); }
+    .grad7 { background: linear-gradient(to right, teal, aqua); }
+    .grad8 { background: linear-gradient(to right, maroon, peachpuff); }
+    .grad9 { background: linear-gradient(to right, darkgreen, lightgreen); }
+
+    /* Section 3: Centered Red Paragraphs */
+    .red-para-demo p {
+      color: red;
+      text-align: center;
+    }
+
+    /* Section 4: Div Container & Paragraph Styling */
+    .lightgray-div-demo div {
+      background-color: lightgray;
+      opacity: 0.8;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .lightgray-div-demo p {
+      color: red;
+      text-align: center;
+    }
+
+    /* Section 5: Border Styles */
+    .border-style-demo p.dotted {border-style: dotted;}
+    .border-style-demo p.dashed {border-style: dashed;}
+    .border-style-demo p.solid {border-style: solid;}
+    .border-style-demo p.double {border-style: double;}
+    .border-style-demo p.groove {border-style: groove;}
+    .border-style-demo p.ridge {border-style: ridge;}
+    .border-style-demo p.inset {border-style: inset;}
+    .border-style-demo p.outset {border-style: outset;}
+    .border-style-demo p.none {border-style: none;}
+    .border-style-demo p.hidden {border-style: hidden;}
+    .border-style-demo p.mix {border-style: dotted dashed solid double;}
+    .border-style-demo p {
+      padding: 8px;
+      border-width: 3px;
+      border-color: #222;
+      margin-bottom: 6px;
+      background: #fafafa;
+    }
+
+    /* Section 6: Font Family Styles */
+    .font-family-demo .p1 {
+      font-family: "Times New Roman", Times, serif;
+    }
+    .font-family-demo .p2 {
+      font-family: Arial, sans-serif;
+    }
+    .font-family-demo .p3 {
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    /* Section 7: Font Awesome Icons */
+    .fa-demo i {
+      font-size: 32px;
+      margin: 0 15px 10px 0;
+      color: #2c3e50;
+    }
+
+    /* Section 8: List Style Types */
+    .list-demo ul.a { list-style-type: disc; }
+    .list-demo ul.b { list-style-type: circle; }
+    .list-demo ul.c { list-style-type: square; }
+    .list-demo ul.d { list-style-type: none; }
+    .list-demo ol.a { list-style-type: decimal; }
+    .list-demo ol.b { list-style-type: upper-alpha; }
+    .list-demo ol.c { list-style-type: lower-alpha; }
+    .list-demo ol.d { list-style-type: lower-roman; }
+    .list-demo ol.e { list-style-type: upper-roman; }
+
+    /* Section 9: Rounded Corners */
+    #corner1 {
+      border-radius: 25px;
+      background-color: lightblue;
+      width: 100px;
+      height: 100px;
+      padding: 20px;
+      display: inline-block;
+      text-align: center;
+      margin: 8px;
+    }
+    #corner2 {
+      border-radius: 50px;
+      background-color: lightgreen;
+      width: 100px;
+      height: 100px;
+      padding: 50px;
+      display: inline-block;
+      text-align: center;
+      margin: 8px;
+    }
+    #corner3 {
+      border-radius: 75px;
+      background-color: lightcoral;
+      width: 100px;
+      height: 100px;
+      padding: 75px;
+      display: inline-block;
+      text-align: center;
+      margin: 8px;
+    }
+
+    /* Section 10: Tooltip */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+      margin-left: 8px;
+      margin-bottom: 15px;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 125%;
+      transform: translateX(-50%);
+      font-size: 0.95em;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    /* Section 11: Flexbox Row */
+    .flexbox-row-demo .flex-container {
+      display: flex;
+      background-color: DodgerBlue;
+      margin-bottom: 14px;
+    }
+    .flexbox-row-demo .flex-container > div {
+      background-color: #f1f1f1;
+      margin: 10px;
+      padding: 20px;
+      font-size: 30px;
+    }
+
+    /* Section 12: Flexbox Column */
+    .flexbox-column-demo .flex-container {
+      display: flex;
+      flex-direction: column;
+      background-color: DodgerBlue;
+      width: 320px;
+    }
+    .flexbox-column-demo .flex-container > div {
+      background-color: #f1f1f1;
+      width: 100px;
+      margin: 10px;
+      text-align: center;
+      line-height: 75px;
+      font-size: 30px;
+    }
+
+    /* Generic formatting */
+    .demo-section {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin: 20px 0;
+      padding: 18px 28px;
+      background: #f9f9f9;
+    }
+    h1 { text-align:center; }
+    h2 { margin-top:0; }
+    hr { margin:32px 0; border:none; border-top:1px solid #e2e2e2;}
+  </style>
+</head>
+<body>
+  <h1>Organized HTML &amp; CSS Demos</h1>
+
+  <div class="demo-section section-demo">
+    <h2>Colored Sections (Flex, Large Font, Centered)</h2>
+    <div class="section section1">Language</div>
+    <div class="section section2">Python</div>
+    <div class="section section3">CSS</div>
+    <div class="section section4">HTML</div>
+  </div>
+  <hr>
+
+  <div class="demo-section gradient-demo">
+    <h2>CSS Gradients: 3x3 Grid</h2>
+    <div class="row">
+      <div class="column grad1"></div>
+      <div class="column grad2"></div>
+      <div class="column grad3"></div>
+    </div>
+    <div class="row">
+      <div class="column grad4"></div>
+      <div class="column grad5"></div>
+      <div class="column grad6"></div>
+    </div>
+    <div class="row">
+      <div class="column grad7"></div>
+      <div class="column grad8"></div>
+      <div class="column grad9"></div>
+    </div>
+  </div>
+  <hr>
+  
+  <div class="demo-section red-para-demo">
+    <h2>Centered Red Paragraphs</h2>
+    <p>Hello World!</p>
+    <p>This paragraph is styled in CSS.</p>
+  </div>
+  <hr>
+  
+  <div class="demo-section lightgray-div-demo">
+    <h2>Red Paragraphs inside Light Gray Div</h2>
+    <div>
+      <p>Hello World!</p>
+      <p>This paragraph is styled in CSS.</p>
+    </div>
+  </div>
+  <hr>
+  
+  <div class="demo-section border-style-demo">
+    <h2>The border-style Property</h2>
+    <p>This property specifies what kind of border to display:</p>
+    <p class="dotted">A dotted border.</p>
+    <p class="dashed">A dashed border.</p>
+    <p class="solid">A solid border.</p>
+    <p class="double">A double border.</p>
+    <p class="groove">A groove border.</p>
+    <p class="ridge">A ridge border.</p>
+    <p class="inset">An inset border.</p>
+    <p class="outset">An outset border.</p>
+    <p class="none">No border.</p>
+    <p class="hidden">A hidden border.</p>
+    <p class="mix">A mixed border.</p>
+  </div>
+  <hr>
+  
+  <div class="demo-section font-family-demo">
+    <h2>Font Family Demo</h2>
+    <p class="p1">This is a paragraph with Times New Roman font.</p>
+    <p class="p2">This is a paragraph with Arial font.</p>
+    <p class="p3">This is a paragraph with Courier New font.</p>
+  </div>
+  <hr>
+  
+  <div class="demo-section fa-demo">
+    <h2>Font Awesome Icons</h2>
+    <i class="fa fa-home"></i>
+    <i class="fa fa-user"></i>
+    <i class="fa fa-envelope"></i>
+    <i class="fa fa-cog"></i>
+    <i class="fa fa-question-circle"></i>
+  </div>
+  <hr>
+  
+  <div class="demo-section list-demo">
+    <h2>List Style Types</h2>
+    <h3>Unordered Lists</h3>
+    <ul class="a"><li>Apple</li><li>Banana</li><li>Chicken</li></ul>
+    <ul class="b"><li>Apple</li><li>Banana</li><li>Chicken</li></ul>
+    <ul class="c"><li>Apple</li><li>Banana</li><li>Chicken</li></ul>
+    <ul class="d"><li>Apple</li><li>Banana</li><li>Chicken</li></ul>
+    <h3>Ordered Lists</h3>
+    <ol class="a"><li>Apple</li><li>Banana</li><li>Chicken</li></ol>
+    <ol class="b"><li>Apple</li><li>Banana</li><li>Chicken</li></ol>
+    <ol class="c"><li>Apple</li><li>Banana</li><li>Chicken</li></ol>
+    <ol class="d"><li>Apple</li><li>Banana</li><li>Chicken</li></ol>
+    <ol class="e"><li>Apple</li><li>Banana</li><li>Chicken</li></ol>
+  </div>
+  <hr>
+  
+  <div class="demo-section">
+    <h2>Rounded Corners</h2>
+    <h3>This is a heading with rounded corners</h3>
+    <p>This is a paragraph with rounded corners.</p>
+    <div id="corner1">Rounded Corner 1</div>
+    <div id="corner2">Rounded Corner 2</div>
+    <div id="corner3">Rounded Corner 3</div>
+  </div>
+  <hr>
+  
+  <div class="demo-section">
+    <h2>Basic Tooltip</h2>
+    <p>Move the mouse over the text below:</p>
+    <div class="tooltip">Hover over me
+      <span class="tooltiptext">Tooltip Text</span>
+    </div>
+    <p style="margin-top:10px;">Note: Tooltip position and style can be further customized.</p>
+  </div>
+  <hr>
+  
+  <div class="demo-section flexbox-row-demo">
+    <h2>Flexbox: Row Layout</h2>
+    <div class="flex-container">
+      <div>aja</div>
+      <div>dekhle</div>
+      <div>box</div>
+    </div>
+    <p>A Flexible Layout must have a parent element with the <em>display</em> property set to <em>flex</em>.</p>
+  </div>
+  <hr>
+
+  <div class="demo-section flexbox-column-demo">
+    <h2>Flexbox: Column Layout</h2>
+    <p><code>flex-direction: column;</code> stacks the flex items vertically:</p>
+    <div class="flex-container">
+      <div>vertical</div>
+      <div>alligned</div>
+      <div>boxes</div>
+    </div>
+  </div>
+  <hr>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Web Page</title>
+</head>
+
+<body>
+    <!-- Main Heading -->
+    <h1>Welcome to My Web Page</h1>
+    <hr />
+
+    <!-- About section headings -->
+    <h2>About Me</h2>
+    <h2>Trying to Learn Web Development</h2>
+    <hr />
+
+    <!-- Subheadings -->
+    <h3>By Your Instructor</h3>
+    <hr />
+    <h4>I'm an Electronics and Telecommunication Student</h4>
+    <hr />
+    <h5>I'm a Diploma Student</h5>
+    <hr />
+    <h6>I'm in my 3rd Year</h6>
+
+    <!-- Introduction paragraph -->
+    <p>
+        Building a website begins with mastering the foundation—HTML, the language that structures content on the web.
+        <br />
+        With tags like headings and paragraphs, developers organize information clearly and efficiently. When paired with
+        CSS for styling and JavaScript for interactivity, HTML transforms static pages into dynamic user experiences.
+        Tools like Visual Studio Code make development smoother, especially when boosted by extensions like Live Server,
+        Prettier, and Path Intellisense. These help streamline workflows, fix code instantly, and reduce common errors—
+        making web design not just faster but way more fun.
+    </p>
+
+    <!-- Paragraphs with nested quotes in title attribute -->
+    <p title='hi "hello" hi'>hi with hello</p>
+    <p title="hi 'hello' hi">hi with hello</p>
+
+    <br />
+
+    <!-- Paragraph with styled text color -->
+    <p style="color:pink;">
+        Building a website begins with mastering the foundation—HTML, the language that structures content on the web.
+        <br />
+        With tags like headings and paragraphs, developers organize information clearly and efficiently. When paired with
+        CSS for styling and JavaScript for interactivity, HTML transforms static pages into dynamic user experiences.
+        Tools like Visual Studio Code make development smoother, especially when boosted by extensions like Live Server,
+        Prettier, and Path Intellisense. These help streamline workflows, fix code instantly, and reduce common errors—
+        making web design not just faster but way more fun.
+    </p>
+
+    <br />
+
+    <p title='hi "hello" hi'></p>
+
+    <!-- Links with various target attributes -->
+    <a href="https://www.google.com" target="_blank">Visit Google (opens in new tab)</a>
+    <br />
+    <a href="https://www.github.com" target="_parent">Visit GitHub (opens in parent frame)</a>
+    <br />
+    <a href="https://www.example.com" target="_self">Visit Example (opens in same window)</a>
+    <br />
+    <a href="https://www.youtube.com" target="_top">Visit YouTube (opens in full body)</a>
+
+    <!-- Image example -->
+    <img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools Logo" width="104" height="142" />
+    <br />
+
+    <!-- Preformatted text -->
+    <pre>
+Line one
+        Line two (indented)
+Line three
+    </pre>
+
+    <!-- Superscript and subscript example -->
+    <p>
+        A Square = a <sup>2</sup> and methane = CH<sub>3</sub>
+    </p>
+
+    <!-- Text with multiple styling tags -->
+    <p>
+        <i>This is <b>Italic and Bold Text</b></i>
+    </p>
+
+    <p>
+        <b>Building a website begins with mastering the foundation—HTML</b>,
+        <strong>the language that structures content on the web.</strong>
+        <br />
+        <i>With tags like headings and paragraphs,</i>
+        <em>developers can organize information clearly and efficiently.</em>
+        <mark>When paired with CSS for styling and JavaScript for interactivity,</mark>
+        <small>HTML transforms static pages into dynamic user experiences.</small>
+        <del> Tools like Visual Studio Code make development smoother, </del>
+        <ins>especially when boosted with extensions like Live Server, Prettier, and Path Intellisense.</ins>
+        <sub> These help streamline workflows,</sub>
+        <sup>fix code instantly, and reduce common errors—making web design not just faster but way more fun.</sup>
+    </p>
+
+    <!-- Paragraph with background image -->
+    <p style="background-image: url('https://www.w3schools.com/images/w3schools_green.jpg'); padding: 10px; background-repeat: no-repeat; background-size: contain;">
+        Building a website begins with mastering the foundation—HTML, the language that structures content on the web.
+        <br />
+        With tags like headings and paragraphs, developers organize information clearly and efficiently. When paired with CSS for styling and JavaScript for interactivity,
+        HTML transforms static pages into dynamic user experiences. Tools like Visual Studio Code make development smoother,
+        especially when boosted with extensions like Live Server, Prettier, and Path Intellisense. These help streamline workflows,
+        fix code instantly, and reduce common errors—making web design not just faster but way more fun.
+    </p>
+
+    <!-- Data table example -->
+    <table border="1" cellpadding="6" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alex</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>Jordan</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>Taylor</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Casey</td>
+                <td>22</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Student registration form -->
+    <form action="/submit-student" method="post">
+        <h2>Student Registration</h2>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <br /><br />
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" />
+        <br /><br />
+
+        <label for="course">Course:</label>
+        <input type="text" id="course" name="course" />
+        <br /><br />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+        <br /><br />
+
+        <input type="submit" value="Register" />
+    </form>
+
+    <!-- Embedded YouTube video -->
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/KEG7b851Ric" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</body>
+
+</html>

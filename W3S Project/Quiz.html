@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HTML Quiz – W3Schools Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="w3s.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Top Navigation -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+      <a href="w3s.html" class="w3-bar-item w3-button"><b>W3</b>Schools</a>
+      <div class="w3-right w3-hide-small">
+        <a href="tutorials.html" class="w3-bar-item w3-button">Tutorials</a>
+        <a href="references.html" class="w3-bar-item w3-button">References</a>
+        <a href="exercises.html" class="w3-bar-item w3-button">Exercises</a>
+        <a href="quiz.html" class="w3-bar-item w3-button w3-green">Quiz</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="w3-container" style="margin-top:60px">
+    <div class="w3-center">
+      <h1 class="w3-text-green">HTML Quiz</h1>
+      <div class="w3-panel w3-leftbar w3-border-green">
+        <p><i class="fa fa-question-circle"></i> Test your HTML knowledge with our comprehensive quiz!</p>
+      </div>
+    </div>
+
+    <div class="w3-container w3-margin-top">
+      <div class="w3-card w3-center" style="max-width:600px;margin:auto">
+        <header class="w3-container w3-green">
+          <h2><i class="fa fa-trophy"></i> HTML Knowledge Test</h2>
+        </header>
+        
+        <div class="w3-container w3-padding" id="quizContainer">
+          <div class="w3-margin-bottom">
+            <div class="w3-light-grey w3-round">
+              <div class="w3-container w3-blue w3-round" style="width:0%" id="progressBar">0%</div>
+            </div>
+          </div>
+          
+          <div id="questionContainer">
+            <h3 id="questionText">Ready to start the quiz?</h3>
+            <div id="answersContainer" class="w3-margin-top">
+              <p>Click the button below to begin!</p>
+            </div>
+          </div>
+          
+          <div class="w3-margin-top">
+            <button class="w3-button w3-green w3-large" id="startQuizBtn" onclick="startQuiz()">Start Quiz</button>
+            <button class="w3-button w3-blue w3-large w3-hide" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+          </div>
+          
+          <div id="resultsContainer" class="w3-hide w3-margin-top">
+            <h3 id="finalScore"></h3>
+            <p id="scoreMessage"></p>
+            <button class="w3-button w3-green" onclick="restartQuiz()">Try Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-row w3-margin-top">
+      <div class="w3-half">
+        <a href="exercises.html" class="w3-button w3-block w3-green w3-left-align">
+          <i class="fa fa-arrow-left"></i> Previous: Exercises
+        </a>
+      </div>
+      <div class="w3-half">
+        <a href="w3s.html" class="w3-button w3-block w3-green w3-right-align">
+          Back to Home <i class="fa fa-home"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="w3s.js"></script>
+</body>
+</html>

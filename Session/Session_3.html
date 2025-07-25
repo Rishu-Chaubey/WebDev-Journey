@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Code Demos</title>
+    <style>
+        section { border:1px solid #ccc; border-radius:8px; margin:30px 0; padding:18px; background:#fafbfc;}
+        h2 { color: #24527a;}
+        body { font-family: Arial, sans-serif; margin: 32px;}
+        pre { background: #f4f4f4; padding: 5px 8px;}
+    </style>
+</head>
+<body>
+    <h1>Organized JavaScript and HTML Demos</h1>
+
+    <section>
+        <h2>1. window.alert(5+6); Example</h2>
+        <p>Shows an alert box with <code>11</code> using <b>window.alert()</b>.</p>
+        <pre>
+        &lt;script&gt;
+            window.alert(5+6);
+        &lt;/script&gt;
+        </pre>
+        <script>
+            // Uncomment to see the alert
+            // window.alert(5+6);
+        </script>
+    </section>
+
+    <section>
+        <h2>2. alert(5+6); Example (shortcut)</h2>
+        <p>Shows an alert box with <code>11</code> using <b>alert()</b>.</p>
+        <pre>
+        &lt;script&gt;
+            alert(5+6);
+        &lt;/script&gt;
+        </pre>
+        <script>
+            // Uncomment to see the alert
+            // alert(5+6);
+        </script>
+    </section>
+
+    <section>
+        <h2>3. document.write(5+6); Example</h2>
+        <p>Prints <code>11</code> directly to the HTML using <b>document.write()</b>.</p>
+        <pre>
+        &lt;script&gt;
+            document.write(5+6);
+        &lt;/script&gt;
+        </pre>
+        <strong>Result:</strong> <span style="color:brown;" id="write-result"></span>
+        <script>
+            document.getElementById("write-result").innerText = (5+6);
+        </script>
+    </section>
+
+    <section>
+        <h2>4. Console Output: student ternary</h2>
+        <p>
+            Code using <b>console.log()</b>, ternary operator and variables.
+            <br><small>Open your browser’s developer console to see the output.</small>
+        </p>
+        <pre>
+        let name = "Rishu";
+        let age = 56;
+        let isStudent = false;
+        console.log(name + (isStudent ? " is a student." : " is not a student."));
+        </pre>
+        <script>
+            let name1 = "Rishu";
+            let age1 = 56;
+            let isStudent1 = false;
+            console.log("[Demo 4]", name1 + (isStudent1 ? " is a student." : " is not a student."));
+        </script>
+    </section>
+
+
+    <section>
+        <h2>5. Console Output: Variable Types and Array Loop</h2>
+        <p>
+            Logs values of different variable types; iterates and prints <b>skills</b> array.
+        </p>
+        <pre>
+        let name = "Rishu";
+        let age = "20";
+        const isStudent = true;
+        let skills = ["Coding", "Singing", "Gaming"];
+
+        console.log(name);
+        console.log(age);
+        console.log(isStudent);
+
+        skills.forEach(skill => console.log("Single skill: " + skill));
+        </pre>
+        <script>
+            let name2 = "Rishu";
+            let age2 = "20";
+            const isStudent2 = true;
+            let skills2 = ["Coding", "Singing", "Gaming"];
+            console.log("[Demo 5]", name2);
+            console.log("[Demo 5]", age2);
+            console.log("[Demo 5]", isStudent2);
+            skills2.forEach(skill => console.log("[Demo 5] Single skill: " + skill));
+        </script>
+    </section>
+
+
+    <section>
+        <h2>6. Console Output: Variables, Operators, Array</h2>
+        <p>
+            Shows variable assignments, <b>skills</b> array loop, and several <b>arithmetic operations on age</b>.
+        </p>
+        <pre>
+        let name = "Rishu";
+        let age = 20;
+        const isStudent = true;
+        let skills = ["Coding", "Singing", "Gaming"];
+
+        console.log("Name: " + name);
+        console.log("Age: " + age);
+        console.log("Is Student: " + isStudent);
+        skills.forEach(skill => console.log("Single skill: " + skill));
+        console.log("Using operators on age:");
+        console.log("age + 5:", age +5); 
+        console.log("age - 5:", age - 5);
+        console.log("age * 2:", age * 2);
+        console.log("age / 2:", age / 2);
+        console.log("age % 3:", age % 3);
+        </pre>
+        <script>
+            let name3 = "Rishu";
+            let age3 = 20;
+            const isStudent3 = true;
+            let skills3 = ["Coding", "Singing", "Gaming"];
+
+            console.log("[Demo 6] Name: " + name3);
+            console.log("[Demo 6] Age: " + age3);
+            console.log("[Demo 6] Is Student: " + isStudent3);
+
+            skills3.forEach(skill => console.log("[Demo 6] Single skill: " + skill));
+
+            console.log("[Demo 6] Using operators on age:");
+            console.log("[Demo 6] age + 5:", age3 + 5);
+            console.log("[Demo 6] age - 5:", age3 - 5);
+            console.log("[Demo 6] age * 2:", age3 * 2);
+            console.log("[Demo 6] age / 2:", age3 / 2);
+            console.log("[Demo 6] age % 3:", age3 % 3);
+        </script>
+    </section>
+</body>
+</html>

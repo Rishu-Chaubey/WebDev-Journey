@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Learn HTML – W3Schools Style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Connect the stylesheet -->
+  <link rel="stylesheet" href="w3s.css" />
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  
+  <!-- CodeMirror for the editor -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+</head>
+
+<body>
+  <!-- Top Navigation Bar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+      <a href="w3s.html" class="w3-bar-item w3-button"><b>W3</b>Schools</a>
+      <div class="w3-right w3-hide-small">
+        <a href="tutorials.html" class="w3-bar-item w3-button">Tutorials</a>
+        <a href="references.html" class="w3-bar-item w3-button">References</a>
+        <a href="exercises.html" class="w3-bar-item w3-button">Exercises</a>
+        <a href="quiz.html" class="w3-bar-item w3-button w3-green">Quiz</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar">
+    <div class="w3-container w3-row">
+      <div class="w3-col s4">
+        <img src="https://www.w3schools.com/images/w3schools_green.jpg" class="w3-circle w3-margin-right" style="width:46px">
+      </div>
+      <div class="w3-col s8 w3-bar">
+        <span>Welcome, <strong>Learner</strong></span><br>
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+      </div>
+    </div>
+    <hr>
+    <div class="w3-container">
+      <h5>HTML Tutorial</h5>
+    </div>
+    <div class="w3-bar-block">
+      <a href="#intro" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-home fa-fw"></i> HTML Introduction</a>
+      <a href="#basics" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-code fa-fw"></i> HTML Basics</a>
+      <a href="#elements" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-tags fa-fw"></i> HTML Elements</a>
+      <a href="#attributes" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-edit fa-fw"></i> HTML Attributes</a>
+      <a href="#forms" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-list fa-fw"></i> HTML Forms</a>
+      <a href="#media" class="w3-bar-item w3-button w3-padding-16"><i class="fa fa-image fa-fw"></i> HTML Media</a>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  <!-- Main Content -->
+  <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+    
+    <!-- Header -->
+    <header class="w3-container" style="padding-top:22px">
+      <h5><b><i class="fa fa-code"></i> HTML Tutorial Dashboard</b></h5>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="w3-row-padding w3-margin-bottom">
+      <div class="w3-container w3-green w3-padding-32 w3-margin-bottom">
+        <h1 class="w3-jumbo">Learn HTML</h1>
+        <h2>The language for building web pages</h2>
+        <p class="w3-xlarge">HTML is the standard markup language for Web pages. With HTML you can create your own Website.</p>
+        <button class="w3-button w3-black w3-large w3-margin-top" onclick="location.href='tutorials.html'">Start Learning HTML</button>
+        <button class="w3-button w3-border w3-large w3-margin-top w3-margin-left" data-example="ex-hello">Try It Yourself</button>
+      </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="w3-row-padding w3-margin-bottom">
+      <div class="w3-third">
+        <div class="w3-container w3-red w3-padding-16">
+          <div class="w3-left"><i class="fa fa-graduation-cap w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>500+</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Tutorials</h4>
+        </div>
+      </div>
+      <div class="w3-third">
+        <div class="w3-container w3-blue w3-padding-16">
+          <div class="w3-left"><i class="fa fa-code w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>1000+</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Examples</h4>
+        </div>
+      </div>
+      <div class="w3-third">
+        <div class="w3-container w3-teal w3-padding-16">
+          <div class="w3-left"><i class="fa fa-question-circle w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>200+</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Quiz Questions</h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- Learning Path -->
+    <div class="w3-container">
+      <h5>Quick Start Learning Path</h5>
+      <div class="w3-row">
+        <div class="w3-col m2 text-center">
+          <div class="w3-circle w3-green w3-center" style="height:60px;width:60px;line-height:60px;">1</div>
+        </div>
+        <div class="w3-col m10">
+          <div class="w3-container w3-section">
+            <h4><a href="tutorials.html" class="w3-text-green">HTML Basics</a></h4>
+            <p>Learn the fundamental structure of HTML documents</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-row">
+        <div class="w3-col m2 text-center">
+          <div class="w3-circle w3-blue w3-center" style="height:60px;width:60px;line-height:60px;">2</div>
+        </div>
+        <div class="w3-col m10">
+          <div class="w3-container w3-section">
+            <h4><a href="references.html" class="w3-text-blue">HTML References</a></h4>
+            <p>Explore all HTML tags and their attributes</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w3-row">
+        <div class="w3-col m2 text-center">
+          <div class="w3-circle w3-orange w3-center" style="height:60px;width:60px;line-height:60px;">3</div>
+        </div>
+        <div class="w3-col m10">
+          <div class="w3-container w3-section">
+            <h4><a href="exercises.html" class="w3-text-orange">Practice Exercises</a></h4>
+            <p>Test your knowledge with hands-on exercises</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-16 w3-light-grey">
+      <p>© 2025 W3Schools-Style Tutorial. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Try It Yourself Modal -->
+  <div id="editorModal" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container w3-green">
+        <span onclick="closeEditor()" class="w3-button w3-display-topright">&times;</span>
+        <h2>Try It Yourself</h2>
+      </div>
+      <div class="editor-body">
+        <textarea id="codeArea"></textarea>
+        <iframe id="preview" class="w3-border"></iframe>
+      </div>
+      <div class="w3-container w3-padding">
+        <button class="w3-button w3-green" id="resetExample">Reset</button>
+        <button class="w3-button w3-blue" id="saveExample">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="w3s.js"></script>
+</body>
+</html>

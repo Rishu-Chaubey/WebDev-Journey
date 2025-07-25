@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HoneyTrap Dashboard</title>
+
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* Set base font & background */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        /* Custom scrollbar styles for main content scroll */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Fixed box size for chart containers */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 256px;
+        }
+
+        /* Canvas fills its container */
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-20 bg-white shadow-lg flex flex-col items-center py-6 rounded-r-lg">
+        <!-- Logo -->
+        <div class="mb-10">
+            <img src="https://placehold.co/40x40/000000/FFFFFF?text=HT" alt="HoneyTrap Logo" class="rounded-full" />
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex flex-col space-y-8">
+            <a href="home.html" title="Home"
+                class="p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200 flex justify-center items-center">
+                <!-- Home icon (Lucide) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home">
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+            </a>
+            <a href="dashboard.html" title="Dashboard"
+                class="p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200 flex justify-center items-center">
+                <!-- Dashboard icon (Lucide) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-layout-dashboard">
+                    <rect x="3" y="3" width="7" height="9" />
+                    <rect x="14" y="3" width="7" height="5" />
+                    <rect x="14" y="12" width="7" height="9" />
+                    <rect x="3" y="16" width="7" height="5" />
+                </svg>
+            </a>
+            <a href="vault.html" title="Vault"
+                class="p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200 flex justify-center items-center">
+                <!-- Lock icon (Lucide) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock">
+                    <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+            </a>
+            <a href="community.html" title="Community"
+                class="p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200 flex justify-center items-center">
+                <!-- Users icon (Lucide) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+            </a>
+            <a href="settings.html" title="Settings"
+                class="p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200 flex justify-center items-center">
+                <!-- Settings icon (Lucide) -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings">
+                    <path
+                        d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.78 1.22a2 2 0 0 0 .73 2.73l.09.09a2 2 0 0 1 0 2.83l-.08.08a2 2 0 0 0-.73 2.73l.78 1.22a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.78-1.22a2 2 0 0 0-.73-2.73l-.09-.09a2 2 0 0 1 0-2.83l.08-.08a2 2 0 0 0 .73-2.73l-.78-1.22a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Area (scrollable) -->
+    <main class="flex-1 p-8 overflow-y-auto custom-scrollbar">
+        <!-- Header with profile and search -->
+        <header class="flex justify-between items-center mb-8">
+            <div class="flex items-center space-x-3">
+                <img src="https://placehold.co/50x50/000000/FFFFFF?text=Profile" alt="Profile Picture"
+                    class="rounded-full" />
+                <h1 class="text-2xl font-semibold text-gray-800">HoneyTrap</h1>
+            </div>
+            <div class="relative">
+                <input type="text" placeholder="Search"
+                    class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <!-- Search Icon inside input -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                </svg>
+            </div>
+        </header>
+
+        <!-- Top statistics cards group -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div
+                class="bg-blue-600 text-white p-6 rounded-lg shadow-md flex flex-col items-start">
+                <h2 class="text-lg font-medium mb-2">Total Attacks Detected</h2>
+                <p class="text-4xl font-bold">0</p>
+            </div>
+            <div
+                class="bg-blue-600 text-white p-6 rounded-lg shadow-md flex flex-col items-start">
+                <h2 class="text-lg font-medium mb-2">Live Attack</h2>
+                <p class="text-4xl font-bold">0</p>
+            </div>
+            <div
+                class="bg-blue-600 text-white p-6 rounded-lg shadow-md flex flex-col items-start">
+                <h2 class="text-lg font-medium mb-2">Server Health Status</h2>
+                <p class="text-4xl font-bold">0%</p>
+            </div>
+        </section>
+
+        <!-- Middle charts and info -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Pie Chart card -->
+            <div class="bg-white p-6 rounded-lg shadow-md col-span-1 lg:col-span-1">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Threat Type Distribution</h2>
+                <div class="flex flex-col md:flex-row items-center justify-around chart-container">
+                    <canvas id="threatPieChart" class="w-full md:w-1/2 h-full"></canvas>
+                    <div class="flex flex-col space-y-2 mt-4 md:mt-0 md:ml-8">
+                        <div class="flex items-center">
+                            <span class="w-4 h-4 rounded-full bg-blue-500 mr-2"></span>
+                            <span class="text-gray-700">0% Broken Machine</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-4 h-4 rounded-full bg-gray-400 mr-2"></span>
+                            <span class="text-gray-700">0% Human Error</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-4 h-4 rounded-full bg-purple-400 mr-2"></span>
+                            <span class="text-gray-700">0% Personal Breaks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line Chart card -->
+            <div class="bg-white p-6 rounded-lg shadow-md col-span-1 lg:col-span-1">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Attack Frequency Graph</h2>
+                <div class="chart-container">
+                    <canvas id="attackFrequencyChart" class="w-full h-full"></canvas>
+                </div>
+            </div>
+
+            <!-- Endpoints and Geolocation -->
+            <div class="bg-white p-6 rounded-lg shadow-md col-span-1">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Top Targeted Endpoints</h2>
+                <p class="text-blue-600 text-lg font-medium mb-6">none</p>
+
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Geolocation of Attack</h2>
+                <p class="text-blue-600 text-lg font-medium">ABC</p>
+            </div>
+        </section>
+
+        <!-- Bottom section: live logs and analysis -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">Live Attack Logs</h2>
+                <p class="text-blue-600 text-lg font-medium">Threat Level %</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">AI Analysis</h2>
+                <p class="text-blue-600 text-lg font-medium">Real Threat/False Positive</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript to draw charts -->
+    <script>
+        // Draw a donut (pie with hole) chart for threat distribution
+        function drawPieChart() {
+            const canvas = document.getElementById('threatPieChart');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+
+            // Handle HiDPI screens for crisp rendering
+            const dpi = window.devicePixelRatio;
+            canvas.width = canvas.offsetWidth * dpi;
+            canvas.height = canvas.offsetHeight * dpi;
+            ctx.scale(dpi, dpi);
+
+            // Data slices with values and colors
+            const data = [
+                { value: 60, color: '#3B82F6', label: 'Broken Machine' }, // Tailwind Blue-500
+                { value: 20, color: '#9CA3AF', label: 'Human Error' },   // Gray-400
+                { value: 20, color: '#C084FC', label: 'Personal Breaks' } // Purple-400
+            ];
+            const total = data.reduce((sum, d) => sum + d.value, 0);
+            let startAngle = 0;
+
+            const centerX = canvas.width / (2 * dpi);
+            const centerY = canvas.height / (2 * dpi);
+            const radius = Math.min(centerX, centerY) * 0.7;
+
+            // Draw background circle (lighter blue)
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            ctx.fillStyle = '#E0E7FF';
+            ctx.fill();
+
+            // Draw slices
+            data.forEach(item => {
+                const sliceAngle = (item.value / total) * Math.PI * 2;
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
+                ctx.closePath();
+                ctx.fillStyle = item.color;
+                ctx.fill();
+                startAngle += sliceAngle;
+            });
+
+            // Draw white inner circle to create donut effect
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius * 0.6, 0, Math.PI * 2);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+        }
+
+        // Draw the attack frequency line graph
+        function drawLineChart() {
+            const canvas = document.getElementById('attackFrequencyChart');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+
+            // HiDPI fixes
+            const dpi = window.devicePixelRatio;
+            canvas.width = canvas.offsetWidth * dpi;
+            canvas.height = canvas.offsetHeight * dpi;
+            ctx.scale(dpi, dpi);
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear previous drawings
+
+            const padding = 40;
+            const chartWidth = canvas.offsetWidth - 2 * padding;
+            const chartHeight = canvas.offsetHeight - 2 * padding;
+
+            // Hardcoded data points matching image proportions
+            const line1Data = [
+                { x: 0, y: 3 },
+                { x: 1, y: 5 },
+                { x: 2, y: 15 },
+                { x: 3, y: 32 }
+            ];
+            const line2Data = [
+                { x: 0, y: 2 },
+                { x: 1, y: 4 },
+                { x: 2, y: 6 },
+                { x: 3, y: 8 }
+            ];
+
+            const labelsX = ['Quarter 1', 'Quarter 2', 'Quarter 3', 'Quarter 4'];
+            const labelsY = [0, 5, 10, 15, 20, 25, 30, 35];
+
+            const xStep = chartWidth / (labelsX.length - 1);
+            const yMax = 35;
+            const yScale = chartHeight / yMax;
+
+            // Draw Y axis labels & grid lines
+            ctx.font = '12px Inter';
+            ctx.fillStyle = '#6B7280'; // Gray-500
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'middle';
+
+            labelsY.forEach(label => {
+                const y = padding + chartHeight - label * yScale;
+                ctx.fillText(label, padding - 10, y);
+
+                // Grid line
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(padding + chartWidth, y);
+                ctx.strokeStyle = '#eee';
+                ctx.stroke();
+            });
+
+            // Draw X axis labels
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+            labelsX.forEach((label, i) => {
+                const x = padding + i * xStep;
+                ctx.fillText(label, x, padding + chartHeight + 10);
+            });
+
+            // Function to draw a line with points & smooth curve
+            function drawLine(dataPoints, color, pointColor) {
+                ctx.beginPath();
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+
+                dataPoints.forEach((point, i) => {
+                    const x = padding + point.x * xStep;
+                    const y = padding + chartHeight - point.y * yScale;
+
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        const prevX = padding + dataPoints[i - 1].x * xStep;
+                        const prevY = padding + chartHeight - dataPoints[i - 1].y * yScale;
+                        const midX = (prevX + x) / 2;
+                        ctx.quadraticCurveTo(midX, prevY, x, y);
+                    }
+
+                    // Draw data point circle
+                    ctx.beginPath();
+                    ctx.arc(x, y, 4, 0, Math.PI * 2);
+                    ctx.fillStyle = pointColor;
+                    ctx.fill();
+                    ctx.strokeStyle = '#fff';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                });
+                ctx.stroke();
+            }
+
+            // Draw the two lines with different colors
+            drawLine(line1Data, '#3B82F6', '#3B82F6'); // Blue
+            drawLine(line2Data, '#6EE7B7', '#6EE7B7'); // Greenish
+        }
+
+        // Initialize charts on load and redraw on window resize for responsiveness
+        window.onload = () => {
+            drawPieChart();
+            drawLineChart();
+
+            window.addEventListener('resize', () => {
+                drawPieChart();
+                drawLineChart();
+            });
+        };
+    </script>
+</body>
+
+</html>
